@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">defensacivil</string>
+    <string name="title_activity_main">defensacivil</string>
+    <string name="package_name">ionic.defensacivil</string>
+    <string name="custom_url_scheme">ionic.defensacivil</string>
+</resources>
