@@ -13,5 +13,13 @@ export const routes: Routes = [
   {
     path: 'noticia-vista',
     loadComponent: () => import('./pages/noticia-vista/noticia-vista.page').then( m => m.NoticiaVistaPage)
+  },
+  {
+    path: 'login',
+    loadComponent: () => import('./pages/login/login.page').then( m => m.LoginPage)
+  },
+  {
+    path: 'noticia-detalle',
+    loadComponent: () => import('./pages/noticia-detalle/noticia-detalle.page').then( m => m.NoticiaDetallePage)
   }
 ];
