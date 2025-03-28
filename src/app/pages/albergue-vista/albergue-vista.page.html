@@ -12,7 +12,7 @@
     </ion-toolbar>
   </ion-header>
   <ion-list>
-    <ion-list>
+    <ion-list *ngIf="Albergues.length > 0">
       <ion-item-sliding *ngFor="let albergue of Albergues">
         <ion-item>
           <ion-label>

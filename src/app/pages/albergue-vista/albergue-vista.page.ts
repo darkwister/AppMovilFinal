@@ -12,18 +12,7 @@ import { IonContent, IonHeader, IonTitle, IonToolbar, IonProgressBar, IonList, I
 })
 export class AlbergueVistaPage implements OnInit {
   isLoading: boolean = false;
-  Albergues: any[] = [
-    {
-      ciudad:	"Distrito Nacional",
-      codigo:	"DO-010002",
-      edificio:	"Polideportivo San Carlos",
-      coordinador:	"Luis Peña",
-      telefono:	"(809) 308-3411",
-      capacidad:	"274 personas",
-      lat:	"-69.89178",
-      lng:	"18.47893"
-    }
-  ];
+  Albergues: any[] = [];
   constructor() { }
 
   ngOnInit() {
