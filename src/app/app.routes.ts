@@ -3,7 +3,7 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: '/example',
+    redirectTo: '/inicio-nonuser',
     pathMatch: 'full',
   },
   {

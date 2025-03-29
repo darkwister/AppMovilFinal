@@ -1,0 +1,17 @@
+.slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+  }
+  
+.slide-item {
+    flex: 0 0 auto;
+    width: 100%;
+    height: 320px;
+    scroll-snap-align: center;
+    margin-right: 10px;
+}
+.logo {
+    width: 100px;
+    height: 100px;
+}
