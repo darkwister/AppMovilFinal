@@ -25,5 +25,9 @@ export const routes: Routes = [
   {
     path: 'albergue-vista',
     loadComponent: () => import('./pages/albergue-vista/albergue-vista.page').then( m => m.AlbergueVistaPage)
+  },
+  {
+    path: 'inicio-nonuser',
+    loadComponent: () => import('./pages/inicio-nonuser/inicio-nonuser.page').then( m => m.InicioNonuserPage)
   }
 ];
