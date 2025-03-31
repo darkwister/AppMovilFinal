@@ -7,7 +7,7 @@ export const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    //Ashanty estubo aqui
+    //Probando el sync
     path: 'inicio-user',
     loadComponent: () => import('./pages/inicio-user/inicio-user.page').then( m => m.InicioUserPage)
   },
