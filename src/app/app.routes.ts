@@ -7,6 +7,7 @@ export const routes: Routes = [
     pathMatch: 'full',
   },
   {
+    //Ashanty estubo aqui
     path: 'inicio-user',
     loadComponent: () => import('./pages/inicio-user/inicio-user.page').then( m => m.InicioUserPage)
   },
@@ -25,7 +26,8 @@ export const routes: Routes = [
   {
     path: 'albergue-vista',
     loadComponent: () => import('./pages/albergue-vista/albergue-vista.page').then( m => m.AlbergueVistaPage)
-  },  {
+  },
+  {
     path: 'albergue-detalle',
     loadComponent: () => import('./pages/albergue-detalle/albergue-detalle.page').then( m => m.AlbergueDetallePage)
   },
