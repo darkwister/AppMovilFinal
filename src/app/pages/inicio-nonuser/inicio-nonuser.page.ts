@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonImg, IonAvatar, IonText, IonLabel, IonGrid, IonRow, IonCol } from '@ionic/angular/standalone';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-inicio-nonuser',
@@ -16,9 +17,12 @@ export class InicioNonuserPage implements OnInit {
     'https://ionicframework.com/docs/img/demos/thumbnail.svg',
     'https://ionicframework.com/docs/img/demos/thumbnail.svg'
   ]
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
+  navigateLogin(){
+    this.router.navigate(['login'])
+  }
 }
