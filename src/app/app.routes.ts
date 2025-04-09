@@ -29,5 +29,13 @@ export const routes: Routes = [
   {
     path: 'inicio-nonuser',
     loadComponent: () => import('./pages/inicio-nonuser/inicio-nonuser.page').then( m => m.InicioNonuserPage)
+  },
+  {
+    path: 'situaciones-crear',
+    loadComponent: () => import('./pages/situaciones-crear/situaciones-crear.page').then( m => m.SituacionesCrearPage)
+  },
+  {
+    path: 'situaciones-mapa',
+    loadComponent: () => import('./pages/situaciones-mapa/situaciones-mapa.page').then( m => m.SituacionesMapaPage)
   }
 ];
