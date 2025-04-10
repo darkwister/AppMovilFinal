@@ -1,25 +1,25 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, FormsModule, Validators, ReactiveFormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonProgressBar, IonItem, IonList, IonButton, IonLabel, IonInput, IonTextarea } from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonProgressBar, IonItem, IonButton, IonInput, IonTextarea, IonButtons, IonBackButton } from '@ionic/angular/standalone';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import * as L from 'leaflet';
-import { Title } from '@angular/platform-browser';
-import { image } from 'ionicons/icons';
+import { Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-situaciones-crear',
   templateUrl: './situaciones-crear.page.html',
   styleUrls: ['./situaciones-crear.page.scss'],
   standalone: true,
-  imports: [IonTextarea, IonInput, IonLabel, IonButton, IonList, IonItem, IonProgressBar, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, ReactiveFormsModule]
+  imports: [IonBackButton, IonButtons, IonTextarea, IonInput, IonButton, IonItem, IonProgressBar, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, ReactiveFormsModule]
 })
 export class SituacionesCrearPage implements OnInit, AfterViewInit {
-  situacionForm!: FormGroup;
+  public situacionForm!: FormGroup;
   public map!: L.Map;
   private marker: L.Marker | undefined;
   public imagen: string | undefined;
   loading?: boolean;
+
   constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
@@ -31,7 +31,7 @@ export class SituacionesCrearPage implements OnInit, AfterViewInit {
       longitud: ['', Validators.required],
     })
   }
-  ngAfterViewInit(){
+  ngAfterViewInit() {
     this.loadMap();
     setTimeout(() => {
       if(this.map){
@@ -39,18 +39,25 @@ export class SituacionesCrearPage implements OnInit, AfterViewInit {
       }
     }, 0);
   }
+
+  ionViewDidEnter() {
+    setTimeout(() => {
+      this.loadMap();
+    }, 300); // dale un respiro a Ionic antes de cargar el mapa
+  }
   async registrarSituacion() {
     throw new Error('Method not implemented.');
   }
 
+
   loadMap() {
-    this.map = L.map('map').setView([18.7357, -70.1627], 8);
+    this.map = L.map('mapSituacionCrear').setView([18.7357, -70.1627], 8);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '© OpenStreetMap contributors'
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(this.map);
 
     this.map.on('click', (e: L.LeafletMouseEvent) => this.onMapClick(e));
-
+    // Muy importante: invalida el tamaño DESPUÉS de cargar y visibilizar el mapa
     this.map.invalidateSize();
   }
   onMapClick(e: L.LeafletMouseEvent) {

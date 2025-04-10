@@ -1,8 +1,12 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
     <ion-title>Situaciones</ion-title>
+    <ion-progress-bar *ngIf="loading" type="indeterminate"></ion-progress-bar>
   </ion-toolbar>
-  <ion-progress-bar type="indeterminate"></ion-progress-bar>
+  
 </ion-header>
 
 <ion-content [fullscreen]="true">
@@ -22,10 +26,10 @@
     </ion-item>
 
     <ion-button type="button" expand="full" (click)="tomarFoto()">Tomar Foto</ion-button>
-
-    <img *ngIf="situacionForm.get('imagen')" [src]="situacionForm.get('imagen')" alt="Foto de la situacion" style="width: 100px;">
-
-    <div id="map" style="height: 400px; width: 100%;"></div>
+    <img src="{{situacionForm.value.imagen}}" alt="Foto de la situacion" style="height: 50%; width: 50%;">
+    <ion-item>
+      <div id="mapSituacionCrear" style="height: 400px; width: 100%;"></div>
+    </ion-item>
 
     <ion-button type="submit" expand="full" [disabled]="!situacionForm.valid">Crear nueva situacion</ion-button>
   </form>
