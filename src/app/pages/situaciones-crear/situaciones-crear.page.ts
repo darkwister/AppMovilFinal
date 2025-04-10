@@ -43,7 +43,7 @@ export class SituacionesCrearPage implements OnInit, AfterViewInit {
   ionViewDidEnter() {
     setTimeout(() => {
       this.loadMap();
-    }, 300); // dale un respiro a Ionic antes de cargar el mapa
+    }, 300); 
   }
   async registrarSituacion() {
     throw new Error('Method not implemented.');
@@ -57,7 +57,6 @@ export class SituacionesCrearPage implements OnInit, AfterViewInit {
     }).addTo(this.map);
 
     this.map.on('click', (e: L.LeafletMouseEvent) => this.onMapClick(e));
-    // Muy importante: invalida el tamaño DESPUÉS de cargar y visibilizar el mapa
     this.map.invalidateSize();
   }
   onMapClick(e: L.LeafletMouseEvent) {
