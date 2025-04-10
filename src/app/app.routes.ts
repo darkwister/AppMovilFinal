@@ -3,7 +3,7 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: '/example',
+    redirectTo: 'folder/inbox',
     pathMatch: 'full',
   },
   {
@@ -25,13 +25,9 @@ export const routes: Routes = [
   {
     path: 'albergue-vista',
     loadComponent: () => import('./pages/albergue-vista/albergue-vista.page').then( m => m.AlbergueVistaPage)
-  },  {
-    path: 'albergue-detalle',
-    loadComponent: () => import('./pages/albergue-detalle/albergue-detalle.page').then( m => m.AlbergueDetallePage)
   },
   {
-    path: 'video-vista',
-    loadComponent: () => import('./pages/video-vista/video-vista.page').then( m => m.VideoVistaPage)
+    path: 'inicio-nonuser',
+    loadComponent: () => import('./pages/inicio-nonuser/inicio-nonuser.page').then( m => m.InicioNonuserPage)
   }
-
 ];
