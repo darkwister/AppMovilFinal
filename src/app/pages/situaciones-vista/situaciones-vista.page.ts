@@ -14,32 +14,9 @@ export class SituacionesVistaPage implements OnInit {
   isLoading: boolean = false;
   Situaciones: any[] = [];
  
-
-  situacionesTest: any[] = [
-    {
-      titulo: 'Situacion 1',
-      descripcion: 'Esta es la situacion 1',
-      fecha: 'ayer',
-      imagen: 'https://picsum.photos/200'
-    },
-    {
-      titulo: 'Situacion 2',
-      descripcion: 'Esta es la situacion 2',
-      fecha: 'hace 2 dias',
-      imagen: 'https://picsum.photos/200'
-    },
-    {
-      titulo: 'Situacion 3',
-      descripcion: 'Esta es la situacion 3',
-      fecha: 'hace 3 dias',
-      imagen: 'https://picsum.photos/200'
-    }
-  ];
-
   constructor() { }
 
   ngOnInit() {
-    this.Situaciones = this.situacionesTest
   }
 
 }

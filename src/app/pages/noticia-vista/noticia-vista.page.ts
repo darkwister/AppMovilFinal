@@ -15,20 +15,7 @@ export class NoticiaVistaPage implements OnInit {
   isLoading: boolean = false
   constructor() { }
 
-  NoticiasTest: any[] = [
-    {
-      titulo: 'Noticia 1',
-      fecha: 'ayer',
-      imagen: 'https://picsum.photos/200'
-    },
-    {
-      titulo: 'Noticia 2',
-      fecha: 'hace 2 dias',
-      imagen: 'https://picsum.photos/200'
-    }
-  ]
   ngOnInit() {
-    this.Noticias = this.NoticiasTest
   }
 
   goDetails(){
