@@ -15,13 +15,13 @@
     <ion-list>
       <ion-item-sliding *ngFor="let noticia of Noticias">
         <ion-item>
+          <ion-thumbnail>
+            <img src="{{noticia.imagen}}" />
+          </ion-thumbnail>
           <ion-label>
             <h3>{{noticia.titulo}}</h3>
             <p>{{noticia.fecha}}</p>
           </ion-label>
-          <ion-thumbnail>
-            <img src="{{noticia.imagen}}" />
-          </ion-thumbnail>
         </ion-item>
         <ion-item-options side="end">
           <ion-item-option (click)="goDetails()">Detalles</ion-item-option>
