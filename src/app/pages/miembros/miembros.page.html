@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Miembros</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="refrescar($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <!-- Estado de carga -->
+  <div *ngIf="cargando" class="ion-text-center ion-padding">
+    <ion-spinner></ion-spinner>
+    <p>Cargando miembros...</p>
+  </div>
+
+  <!-- Mensaje de error -->
+  <div *ngIf="error && !cargando" class="ion-text-center ion-padding">
+    <ion-icon name="warning" size="large"></ion-icon>
+    <p>{{error}}</p>
+    <ion-button (click)="cargarMiembros()">Reintentar</ion-button>
+  </div>
+
+
+  <ion-list *ngIf="!cargando && !error">
+    <ion-item *ngFor="let miembro of miembros">
+      <ion-avatar slot="start">
+        <img [src]="miembro.foto || 'assets/icon/avatar-default.png'" alt="Foto de {{miembro.nombre}}">
+      </ion-avatar>
+      <ion-label>
+        <h2>{{miembro.nombre}}</h2>
+        <p>{{miembro.cargo}}</p>
+        <p>{{miembro.telefono}}</p>
+        <p>{{miembro.correo}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

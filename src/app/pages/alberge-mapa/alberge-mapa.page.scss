@@ -1,0 +1,17 @@
+:host {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+ion-content {
+  --background: transparent;
+  height: 100%;
+  width: 100%;
+}
+
+#mapaId {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
