@@ -1,0 +1,23 @@
+:host {
+    ion-avatar {
+      width: 60px;
+      height: 60px;
+    }
+  
+    ion-item {
+      --padding-start: 10px;
+      --padding-end: 10px;
+      --inner-padding-end: 10px;
+      margin-bottom: 10px;
+    }
+  
+    ion-label p {
+      color: var(--ion-color-medium);
+      margin-top: 5px;
+      font-size: 0.8rem;
+    }
+  
+    .ion-text-center {
+      margin-top: 50%;
+    }
+  }
