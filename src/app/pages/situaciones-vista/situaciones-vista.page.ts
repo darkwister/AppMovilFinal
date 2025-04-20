@@ -34,13 +34,10 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     IonLabel,
     IonList,
     IonThumbnail,
-    IonItemOption,
-    IonItemOptions,
-    IonItemSliding,
     CommonModule,
     FormsModule,
     HttpClientModule
-  ]
+]
 })
 
 export class SituacionesVistaPage implements OnInit {

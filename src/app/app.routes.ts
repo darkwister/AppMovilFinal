@@ -60,6 +60,10 @@ export const routes: Routes = [
   {
     path: 'situaciones-vista',
     loadComponent: () => import('./pages/situaciones-vista/situaciones-vista.page').then(m => m.SituacionesVistaPage)
+  },
+  {
+    path: 'video-vista',
+    loadComponent: () => import('./pages/video-vista/video-vista.page').then(m => m.VideoVistaPage)
   }
 ];
 

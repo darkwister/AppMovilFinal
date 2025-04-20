@@ -30,16 +30,11 @@ import {
     IonToolbar,
     CommonModule,
     FormsModule,
-    IonProgressBar,
     IonList,
-    IonItemSliding,
     IonItem,
     IonLabel,
-    IonItemOptions,
-    IonItemOption,
-    IonCard,
-    IonIcon
-  ]
+    IonCard
+]
 })
 export class AlbergueDetallePage implements OnInit {
   albergue?: {
