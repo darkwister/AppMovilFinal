@@ -30,6 +30,10 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/albergue-vista/albergue-vista.page').then(m => m.AlbergueVistaPage)
   },
   {
+  path: 'albergue-detalle',
+  loadComponent: () => import('./pages/albergue-detalle/albergue-detalle.page').then( m => m.AlbergueDetallePage)
+  },
+  {
     path: 'inicio-nonuser',
     loadComponent: () => import('./pages/inicio-nonuser/inicio-nonuser.page').then(m => m.InicioNonuserPage)
   },
@@ -48,7 +52,17 @@ export const routes: Routes = [
   {
     path: 'miembros',
     loadComponent: () => import('./pages/miembros/miembros.page').then(m => m.MiembrosPage)
+  },
+  {
+    path: 'acerca-de',
+    loadComponent: () => import('./pages/acerca-de/acerca-de.page').then( m => m.AcercaDePage)
+  },
+  {
+    path: 'servicios',
+    loadComponent: () => import('./pages/servicios/servicios.page').then( m => m.ServiciosPage)
   }
+
+
 ];
 
 export const appConfig = {
