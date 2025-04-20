@@ -8,7 +8,7 @@ import { IonContent, IonHeader, IonTitle, IonToolbar, IonProgressBar, IonList, I
   templateUrl: './albergue-detalle.page.html',
   styleUrls: ['./albergue-detalle.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonProgressBar, IonList, IonItemSliding, IonItem, IonLabel, IonItemOptions, IonItemOption, IonCard, IonIcon]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonList, IonItem, IonLabel, IonCard]
 })
 export class AlbergueDetallePage implements OnInit {
 isLoading: boolean = false

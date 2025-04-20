@@ -1,6 +1,9 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>Detalle de la Noticia</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -8,17 +11,18 @@
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Detalle de la Noticia</ion-title>
+      <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+      </ion-buttons>
     </ion-toolbar>
   </ion-header>
 
-
-<ion-card class="rcontainer">
  <ion-card class="container">
 
   <ion-list *ngIf="noticia">
   
-     <ion-item *ngIf="noticia.imagen"> 
-      <img [src]="noticia.imagen" alt="Imagen de la noticia" style="width: 100%; border-radius: 10px;"> 
+     <ion-item *ngIf="noticia.foto"> 
+      <img [src]="noticia.foto" alt="Imagen de la noticia" style="border-radius: 10px;"> 
     </ion-item> 
 
     <ion-item>
@@ -39,7 +43,5 @@
       </ion-label>
     </ion-item>
   </ion-list>
-
-</ion-card>
 </ion-card>
 </ion-content>
