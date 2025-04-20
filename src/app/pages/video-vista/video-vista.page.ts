@@ -8,7 +8,7 @@ import { IonContent, IonHeader, IonTitle, IonToolbar, IonProgressBar, IonItem, I
   templateUrl: './video-vista.page.html',
   styleUrls: ['./video-vista.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonProgressBar, IonItem, IonLabel, IonList, IonThumbnail, IonItemOption, IonItemOptions, IonItemSliding, IonCard]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonProgressBar, IonItem, IonLabel, IonList, IonItemOption, IonItemOptions, IonItemSliding, IonCard]
 })
 export class VideoVistaPage implements OnInit {
   Videos?:any[] = [];

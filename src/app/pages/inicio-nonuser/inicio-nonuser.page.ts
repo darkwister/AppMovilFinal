@@ -9,13 +9,13 @@ import { Router } from '@angular/router';
   templateUrl: './inicio-nonuser.page.html',
   styleUrls: ['./inicio-nonuser.page.scss'],
   standalone: true,
-  imports: [IonCol, IonRow, IonGrid, IonLabel, IonText, IonAvatar, IonImg, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  imports: [IonCol, IonRow, IonGrid, IonLabel, IonText, IonAvatar, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
 })
 export class InicioNonuserPage implements OnInit {
   images = [
-    'https://ionicframework.com/docs/img/demos/thumbnail.svg',
-    'https://ionicframework.com/docs/img/demos/thumbnail.svg',
-    'https://ionicframework.com/docs/img/demos/thumbnail.svg'
+    'assets/defciv/imagePres.png',
+    'assets/defciv/imagePerson.PNG',
+    'assets/defciv/imagenPerson1.png'
   ]
   constructor(private router: Router) { }
 
