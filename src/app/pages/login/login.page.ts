@@ -50,6 +50,6 @@ export class LoginPage implements OnInit {
   }
   
   forgotPassword(){
-    this.route.navigate(['/forgot-password']);
+    this.route.navigate(['/recuperar-con']);
   }
 }

@@ -24,7 +24,7 @@ export class ServiciosPage implements OnInit {
         this.servicios = response.datos;
       }, error =>{
         console.log("Error al cargar los datos:", error);
-        this.error = 'Hubo un error al cargar los datos de servicio.'
+        this.error = 'Hubo un error al cargar los datos de servicio'
       });
   }
 

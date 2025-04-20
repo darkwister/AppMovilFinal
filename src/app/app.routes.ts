@@ -80,7 +80,12 @@ export const routes: Routes = [
   {
     path: 'servicios',
     loadComponent: () => import('./pages/servicios/servicios.page').then( m => m.ServiciosPage)
+  },
+  {
+    path: 'recuperar-con',
+    loadComponent: () => import('./pages/recuperar-con/recuperar-con.page').then( m => m.RecuperarConPage)
   }
+
 
 
 ];
