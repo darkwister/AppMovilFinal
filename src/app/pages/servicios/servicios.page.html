@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Servicios</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="error" class="error-message">
+    <ion-text color="danger">
+      <p>{{ error }}</p>
+    </ion-text>
+  </div>
+
+  <ion-list *ngIf="!error">
+    <ion-item *ngFor="let servicio of servicios">
+      <ion-thumbnail slot="start">
+        <img [src]="servicio.foto" alt="{{servicio.nombre}}">
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{ servicio.nombre }}</h2>
+        <p>{{ servicio.descripcion }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
