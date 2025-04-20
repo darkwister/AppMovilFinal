@@ -38,6 +38,10 @@ export const routes: Routes = [
   loadComponent: () => import('./pages/albergue-detalle/albergue-detalle.page').then( m => m.AlbergueDetallePage)
   },
   {
+  path: 'albergue-detalle',
+  loadComponent: () => import('./pages/albergue-detalle/albergue-detalle.page').then( m => m.AlbergueDetallePage)
+  },
+  {
     path: 'inicio-nonuser',
     loadComponent: () => import('./pages/inicio-nonuser/inicio-nonuser.page').then(m => m.InicioNonuserPage)
   },
