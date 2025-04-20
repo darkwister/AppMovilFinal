@@ -7,17 +7,17 @@
     <ion-item lines="none" class="ion-item">
       <fieldset class="input-item">
         <legend>Cedula de identidad</legend> 
-        <ion-input type="text" placeholder="Ingrese su cedula"></ion-input>
+        <ion-input type="text" placeholder="Ingrese su cedula" [(ngModel)]="cedula"></ion-input>
       </fieldset>
     </ion-item>
     <ion-item lines="none" class="ion-item">
       <fieldset class="input-item">
         <legend>Contraseña</legend> 
-        <ion-input type="password" placeholder="*******"></ion-input>
+        <ion-input type="password" placeholder="*******" [(ngModel)]="password"></ion-input>
       </fieldset>
     </ion-item>
     <p class="forget-text"><a>¿Olvidaste tu contraseña?</a></p>
-    <ion-button class="login-button" expand="block">Iniciar Sesión</ion-button>
+    <ion-button (click)="loginApi()" class="login-button" expand="block">Iniciar Sesión</ion-button>
   </div>
 </div>
 
