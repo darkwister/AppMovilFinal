@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Acerca De</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="centrar-pantalla">
+    <div class="container-wrapper">
+
+      <div class="container-botones">
+        <ion-button class="botones" fill="clear" (click)="anterior()">
+          <img src="assets/images/boton-izquierda.jpg" alt="Anterior">
+        </ion-button>
+
+        <ion-button class="botones" fill="clear" (click)="siguiente()">
+          <img src="assets/images/boton-derecha.jpg" alt="Siguiente">
+        </ion-button>
+      </div>
+
+      <div class="container-perfil" *ngIf="fade">
+        <div class="perfil-contenido">
+          <img [src]="nosotros[current_index].foto" class="foto-perfil" />
+          <h1>{{ nosotros[current_index].nombre }}</h1>
+          <h2>{{ nosotros[current_index].matricula}}</h2>
+          <p>{{ nosotros[current_index].descripcion }}</p>
+          <p>
+            <a [href]="'tel:' + nosotros[current_index].info">
+              {{nosotros[current_index].info}}
+            </a>
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</ion-content>
+
