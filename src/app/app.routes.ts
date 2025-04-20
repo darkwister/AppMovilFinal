@@ -6,7 +6,7 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'miembros',
+    redirectTo: 'example',
     pathMatch: 'full',
   },
   {
@@ -48,6 +48,14 @@ export const routes: Routes = [
   {
     path: 'miembros',
     loadComponent: () => import('./pages/miembros/miembros.page').then(m => m.MiembrosPage)
+  },
+  {
+    path: 'albergue-detalle',
+    loadComponent: () => import('./pages/albergue-detalle/albergue-detalle.page').then(m => m.AlbergueDetallePage)
+  },
+  {
+    path: 'situaciones-vista',
+    loadComponent: () => import('./pages/situaciones-vista/situaciones-vista.page').then(m => m.SituacionesVistaPage)
   }
 ];
 
