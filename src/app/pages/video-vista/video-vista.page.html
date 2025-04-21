@@ -21,7 +21,7 @@
             <h5>{{ video.descripcion }}</h5>
             <p>{{ video.fecha | date:'short' }}</p>
           </ion-label>
-          <ion-button slot="end" color="primary" (click)="verVideo(video.url)">
+          <ion-button slot="end" color="primary" (click)="verVideo(video.link)">
             Ver en YouTube
           </ion-button>
         </ion-item>

@@ -15,6 +15,7 @@ import {
   IonCard,
   IonButton
 } from '@ionic/angular/standalone';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-video-vista',
@@ -33,32 +34,40 @@ import {
     IonLabel,
     IonList,
     IonCard,
-    IonButton
+    IonButton,
+    HttpClientModule
   ]
 })
 export class VideoVistaPage implements OnInit {
   isLoading: boolean = false;
 
-  Videos = [
-    {
-      titulo: 'Informate',
-      descripcion: 'Informate de Nosotros',
-      fecha: new Date(),
-      url: 'https://www.youtube.com/watch?v=WeEV2Ay0x_Q'
-    },
-    {
-      titulo: 'Informate',
-      descripcion: 'Vamos tu puedes',
-      fecha: new Date(),
-      url: 'https://www.youtube.com/watch?v=RZJSekdGaM0'
-    }
-  ];
+  Videos: any;
 
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.getVideoFromApi();
+  }
 
-  verVideo(url: string) {
-    window.open(url, '_blank');
+  getVideoFromApi() {
+    this.isLoading = true;
+    this.http.get<any>('https://adamix.net/defensa_civil/def/videos.php').subscribe({
+      next: (response) => {
+        this.isLoading = false;
+        if (response?.exito && response.datos) {
+          this.Videos = response.datos;
+        } else {
+          console.error('Respuesta inválida', response);
+        }
+      },
+      error: (err) => {
+        this.isLoading = false;
+        console.error('Error al obtener los videos', err);
+      }
+    });
+  }
+
+  verVideo(link: string) {
+    window.open(`https://www.youtube.com/watch?v=${link}`, '_blank');
   }
 }
