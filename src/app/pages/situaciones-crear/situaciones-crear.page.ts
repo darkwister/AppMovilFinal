@@ -33,12 +33,14 @@ export class SituacionesCrearPage implements OnInit, AfterViewInit {
     })
   }
   ngAfterViewInit() {
-    this.loadMap();
-    setTimeout(() => {
+    if(!this.map){
+      this.loadMap();
+      setTimeout(() => {
       if(this.map){
         this.map.invalidateSize();
       }
     }, 0);
+    }
   }
 
   ionViewDidEnter() {
@@ -130,7 +132,7 @@ export class SituacionesCrearPage implements OnInit, AfterViewInit {
       quality: 90,
       allowEditing: false,
       resultType: CameraResultType.Base64, 
-      source: CameraSource.Prompt,
+      source: CameraSource.Photos,
     });
   
     if (image.base64String) {
