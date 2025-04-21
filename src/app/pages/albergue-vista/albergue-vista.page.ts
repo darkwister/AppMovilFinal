@@ -13,8 +13,7 @@ import {
   IonItem,
   IonLabel,
   IonItemOptions,
-  IonItemOption
-} from '@ionic/angular/standalone';
+  IonItemOption, IonButton, IonIcon } from '@ionic/angular/standalone';
 import { Router } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -23,7 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
   templateUrl: './albergue-vista.page.html',
   styleUrls: ['./albergue-vista.page.scss'],
   standalone: true,
-  imports: [
+  imports: [IonIcon, IonButton, 
     IonItemOption,
     IonItemOptions,
     IonLabel,
@@ -70,5 +69,8 @@ export class AlbergueVistaPage implements OnInit {
     this.router.navigate(['/albergue-detalle'], {
       state: { albergue }
     });
+  }
+  mapaNavigate(){
+    this.router.navigate(['/albergue-mapa']);
   }
 }

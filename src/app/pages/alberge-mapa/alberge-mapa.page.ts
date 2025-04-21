@@ -145,7 +145,6 @@ export class AlbergeMapaPage implements AfterViewInit {
           <strong>Coordinador:</strong> ${albergue.coordinador}<br>
           <strong>Teléfono:</strong> ${albergue.telefono}<br>
           <strong>Coordenadas reales:</strong> ${lat.toFixed(5)}, ${lng.toFixed(5)}<br>
-          <small>(API devuelve: lat=${albergue.lat}, lng=${albergue.lng})</small>
         </p>
       </div>
     `;

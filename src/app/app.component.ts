@@ -19,9 +19,9 @@ export class AppComponent {
     { title: 'Quiero ser voluntario', url: '/registro', icon: 'person-add' },
     { title: 'Videos', url: '/video-vista', icon: 'videocam' },
     { title: 'Albergues', url: '/albergue-vista', icon: 'earth' },
+    { title: 'Medidas preventivas', url: '/medidas-preventivas', icon: 'warning' },
     { title: 'Miembros', url: '/miembros', icon: 'people' },
     { title: 'Acerca de', url: '/acerca-de', icon: 'help' },
-    //TODO: Agregar las otras rutas de ashanty
   ];
 
   public appPagesUsers = [
@@ -32,7 +32,7 @@ export class AppComponent {
   ]
 
   constructor(private cdr: ChangeDetectorRef, private router: Router) {
-    addIcons({ homeSharp, homeOutline, constructSharp, constructOutline, newspaperSharp, newspaperOutline, personAddOutline, personAddSharp, videocamSharp, videocamOutline, earthSharp, earthOutline, peopleSharp, peopleOutline, helpSharp, helpOutline, radioSharp, radioOutline, mapSharp, mapOutline});
+    addIcons({ homeSharp, homeOutline, constructSharp, constructOutline, newspaperSharp, newspaperOutline, personAddOutline, personAddSharp, videocamSharp, videocamOutline, earthSharp, earthOutline, peopleSharp, peopleOutline, helpSharp, helpOutline, radioSharp, radioOutline, mapSharp, mapOutline, warningOutline, warningSharp});
   }
 
   login(){
