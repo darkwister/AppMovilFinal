@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonButton, IonInput, IonFooter, IonItem, IonList, IonIcon, IonButtons, IonBackButton } from '@ionic/angular/standalone';
+import { IonContent, IonButton, IonInput, IonItem } from '@ionic/angular/standalone';
 import { Route, Router } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
@@ -10,7 +10,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
   standalone: true,
-  imports: [IonBackButton, IonButtons, IonContent, CommonModule, FormsModule, IonButton, IonInput, IonItem, HttpClientModule, IonToolbar]
+  imports: [IonContent, CommonModule, FormsModule, IonButton, IonInput, IonItem, HttpClientModule]
 })
 export class LoginPage implements OnInit {
   public cedula: string | undefined;
@@ -50,6 +50,6 @@ export class LoginPage implements OnInit {
   }
   
   forgotPassword(){
-    this.route.navigate(['/forgot-password']);
+    this.route.navigate(['/recuperar-con']);
   }
 }

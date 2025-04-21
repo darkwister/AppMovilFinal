@@ -29,19 +29,24 @@ export class SituacionesMapaPage implements OnInit, AfterViewInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit() {}
-  ngAfterViewInit(): void {
+  async ngAfterViewInit(): Promise<void> {
     this.loadMap();
+     await this.fetchSituaciones();
     setTimeout(() => {
       if(this.map){
         this.map.invalidateSize();
       }
     }, 300);
   }
-  fetchSituaciones() {
-    this.http.get<any>('https://adamix.net/defensa_civil/def/situaciones.php').subscribe(response => {
+  async fetchSituaciones() {
+    const token = localStorage.getItem('token'); 
+    var formData = new FormData();
+    formData.append('token', token??'');
+    this.http.post<any>('https://adamix.net/defensa_civil/def/situaciones.php', formData).subscribe(response => {
       if (response.exito) {
         this.situaciones = response.datos;
-        this.addMarkers(); 
+        console.log('Situaciones obtenidas:', this.situaciones);
+        this.addMarkers();
       }
     }, error => {
       console.error('Error al obtener situaciones:', error);

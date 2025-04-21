@@ -15,15 +15,14 @@ import {
   IonItemOptions,
   IonItemOption,
   IonCard,
-  IonIcon
-} from '@ionic/angular/standalone';
+  IonIcon, IonButtons, IonBackButton } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-albergue-detalle',
   templateUrl: './albergue-detalle.page.html',
   styleUrls: ['./albergue-detalle.page.scss'],
   standalone: true,
-  imports: [
+  imports: [IonBackButton, IonButtons, 
     IonContent,
     IonHeader,
     IonTitle,

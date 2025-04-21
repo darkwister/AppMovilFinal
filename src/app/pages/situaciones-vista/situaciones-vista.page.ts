@@ -17,6 +17,7 @@ import {
   IonItemSliding
 } from '@ionic/angular/standalone';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-situaciones-vista',
@@ -44,7 +45,7 @@ export class SituacionesVistaPage implements OnInit {
   isLoading: boolean = false;
   Situaciones: any[] = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private route: Router) {}
 
   ngOnInit() {
     this.getSituaciones();
@@ -55,7 +56,7 @@ export class SituacionesVistaPage implements OnInit {
     const token = localStorage.getItem('token');
 
     if (!token) {
-      console.error('Token no disponible');
+      alert('Token no disponible');
       this.isLoading = false;
       return;
     }
@@ -77,5 +78,12 @@ export class SituacionesVistaPage implements OnInit {
         this.isLoading = false;
       }
     });
+  }
+  mapaSituacionNavigate(){
+    this.route.navigate(['situaciones-mapa']);
+  }
+
+  crearSituacionNavigate(){
+    this.route.navigate(['situaciones-crear']);
   }
 }

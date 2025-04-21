@@ -6,7 +6,7 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'video-vista',
+    redirectTo: 'inicio-nonuser',
     pathMatch: 'full',
   },
   {
@@ -32,6 +32,14 @@ export const routes: Routes = [
   {
     path: 'albergue-vista',
     loadComponent: () => import('./pages/albergue-vista/albergue-vista.page').then(m => m.AlbergueVistaPage)
+  },
+  {
+  path: 'albergue-detalle',
+  loadComponent: () => import('./pages/albergue-detalle/albergue-detalle.page').then( m => m.AlbergueDetallePage)
+  },
+  {
+  path: 'albergue-detalle',
+  loadComponent: () => import('./pages/albergue-detalle/albergue-detalle.page').then( m => m.AlbergueDetallePage)
   },
   {
     path: 'inicio-nonuser',
@@ -64,20 +72,33 @@ export const routes: Routes = [
   {
     path: 'video-vista',
     loadComponent: () => import('./pages/video-vista/video-vista.page').then(m => m.VideoVistaPage)
+  },
+  {
+    path: 'acerca-de',
+    loadComponent: () => import('./pages/acerca-de/acerca-de.page').then( m => m.AcercaDePage)
+  },
+  {
+    path: 'servicios',
+    loadComponent: () => import('./pages/servicios/servicios.page').then( m => m.ServiciosPage)
+  },
+  {
+    path: 'recuperar-con',
+    loadComponent: () => import('./pages/recuperar-con/recuperar-con.page').then( m => m.RecuperarConPage)
+  },
+  {
+    path: 'cambiar-con',
+    loadComponent: () => import('./pages/cambiar-con/cambiar-con.page').then( m => m.CambiarConPage)
   }
 ];
 
 export const appConfig = {
   providers: [
     provideHttpClient(
-      withInterceptors([]) // Puedes agregar interceptores aquí si los necesitas
+      withInterceptors([])
     ),
     provideIonicAngular({
       mode: 'md',
       platform: {
-        /** The default `desktop` function returns false for devices with a touchscreen.
-        * This is not always wanted, so this function tests the User Agent instead.
-        **/
         desktop: (win) => {
           const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(win.navigator.userAgent);
           return !isMobile;
@@ -85,6 +106,5 @@ export const appConfig = {
       }
     }),
     provideAnimations(),
-    // Otros providers globales que necesites
   ]
 };
