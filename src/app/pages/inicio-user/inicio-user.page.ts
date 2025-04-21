@@ -35,6 +35,6 @@ export class InicioUserPage implements OnInit {
     this.router.navigate(['inicio-nonuser']);
   }
   changePasswordNavigate(){
-    //TODO: Aqui va el metodo de cambio de contrasena
+    this.router.navigate(['/cambiar-con']);
   }
 }
