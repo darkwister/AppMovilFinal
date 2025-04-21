@@ -1,0 +1,104 @@
+.centrar-pantalla {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .container-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 900px;
+  }
+  
+  
+  .container-perfil {
+    background-color: white;
+    border-radius: 20px;
+    padding: 30px 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    animation: fadeEffect 0.4s ease-in-out;
+  }
+  
+  .foto-perfil {
+    width: 240px;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .container-botones {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    z-index: 2;
+  }
+
+  .perfil-contenido a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .perfil-contenido a:hover {
+    text-decoration: underline;
+  }
+
+  .botones img {
+    width: 60px;
+    height: 60px;
+    transition: transform 0.2s;
+  }
+  
+  .botones:active img {
+    transform: scale(1.1);
+  }
+  
+  h1, h2, p {
+    color: black;
+  }
+
+  h1{
+    font-size: 36px;
+  }
+
+  h2{
+    font-size: 30px
+  }
+
+  p{
+    font-size: 24px;
+  }
+  
+  @keyframes fadeEffect {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  .fade-in {
+    animation: fadeEffect 0.4s ease-in-out;
+  }
+
+  .perfil-contenido {
+    padding: 0 20px;
+  }
+  
+
+  
+  

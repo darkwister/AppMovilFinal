@@ -2,7 +2,7 @@
   <ion-split-pane contentId="main-content">
     <ion-menu contentId="main-content" type="overlay">
       <ion-content>
-        <ion-list id="inbox-list" *ngIf="!isUser">
+        <ion-list id="inbox-list" *ngIf="!userLoged">
           <ion-list-header>Defensa Civil</ion-list-header>
             <ion-menu-toggle *ngFor="let p of appPagesNonUsers" auto-hide="false">
               <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
@@ -10,12 +10,12 @@
                 <ion-label>{{ p.title }}</ion-label>
               </ion-item>
             </ion-menu-toggle>
-          <ion-button (click)="userSwitch()" expand="block" fill="clear" shape="round">
-            Click me
+          <ion-button (click)="login()" expand="block" fill="clear" shape="round">
+            Log In
           </ion-button>
         </ion-list>
 
-        <ion-list id="inbox-list" *ngIf="isUser">
+        <ion-list id="inbox-list" *ngIf="userLoged">
           <ion-list-header>Defensa Civil</ion-list-header>
             <ion-menu-toggle *ngFor="let p of appPagesUsers" auto-hide="false"> 
               <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
@@ -23,8 +23,8 @@
                 <ion-label>{{ p.title }}</ion-label>
               </ion-item>
             </ion-menu-toggle>
-          <ion-button (click)="userSwitch()" expand="block" fill="clear" shape="round">
-            Click me
+          <ion-button (click)="logOut()" expand="block" fill="clear" shape="round">
+            Log Out
           </ion-button>
         </ion-list>
       </ion-content>
