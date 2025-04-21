@@ -6,7 +6,7 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'example',
+    redirectTo: 'video-vista',
     pathMatch: 'full',
   },
   {

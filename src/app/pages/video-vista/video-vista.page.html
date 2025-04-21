@@ -14,20 +14,18 @@
 
   <ion-card class="rcontainer">
     <ion-card class="container">
-  <ion-list>
-    <ion-item-sliding *ngFor="let video of Videos">
-      <ion-item>
-        <ion-label>
-          <h3>{{ video.titulo }}</h3> 
-          <h5>{{ video.descripcion }}</h5>
-          <p>{{ video.fecha | date:'short' }}</p> 
-        </ion-label>
-      </ion-item>
-      <ion-item-options side="end">
-        <ion-item-option (click)="verVideo()">Ver Video en Youtube</ion-item-option>
-      </ion-item-options>
-    </ion-item-sliding>
-  </ion-list>
-</ion-card>
-</ion-card>
+      <ion-list>
+        <ion-item *ngFor="let video of Videos">
+          <ion-label>
+            <h3>{{ video.titulo }}</h3>
+            <h5>{{ video.descripcion }}</h5>
+            <p>{{ video.fecha | date:'short' }}</p>
+          </ion-label>
+          <ion-button slot="end" color="primary" (click)="verVideo(video.url)">
+            Ver en YouTube
+          </ion-button>
+        </ion-item>
+      </ion-list>
+    </ion-card>
+  </ion-card>
 </ion-content>

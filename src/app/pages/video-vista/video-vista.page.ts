@@ -1,26 +1,64 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonProgressBar, IonItem, IonLabel, IonList, IonThumbnail, IonItemOption, IonItemOptions, IonItemSliding, IonCard } from '@ionic/angular/standalone';
+
+// Importaciones Ionic
+import {
+  IonContent,
+  IonHeader,
+  IonTitle,
+  IonToolbar,
+  IonProgressBar,
+  IonItem,
+  IonLabel,
+  IonList,
+  IonCard,
+  IonButton
+} from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-video-vista',
   templateUrl: './video-vista.page.html',
   styleUrls: ['./video-vista.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonProgressBar, IonItem, IonLabel, IonList, IonItemOption, IonItemOptions, IonItemSliding, IonCard]
+  imports: [
+    CommonModule,
+    FormsModule,
+    IonContent,
+    IonHeader,
+    IonTitle,
+    IonToolbar,
+    IonProgressBar,
+    IonItem,
+    IonLabel,
+    IonList,
+    IonCard,
+    IonButton
+  ]
 })
 export class VideoVistaPage implements OnInit {
-  Videos?:any[] = [];
-
   isLoading: boolean = false;
 
-  constructor() { }
+  Videos = [
+    {
+      titulo: 'Video 1',
+      descripcion: 'Introducción a Ionic',
+      fecha: new Date(),
+      url: 'https://www.youtube.com/watch?v=WeEV2Ay0x_Q'
+    },
+    {
+      titulo: 'Video 2',
+      descripcion: 'Avanzado en Angular',
+      fecha: new Date(),
+      url: 'https://www.youtube.com/watch?v=RZJSekdGaM0'
+    }
+  ];
 
-  ngOnInit() {
-  }
+  constructor() {}
 
-  verVideo() {
-    throw new Error('Method not implemented.');
+  ngOnInit() {}
+
+  verVideo(url: string) {
+    window.open(url, '_blank');
   }
 }
