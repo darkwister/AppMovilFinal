@@ -5,13 +5,14 @@ import { IonContent, IonHeader, IonTitle, IonToolbar, IonProgressBar, IonItem, I
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import * as L from 'leaflet';
 import { Platform } from '@ionic/angular';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-situaciones-crear',
   templateUrl: './situaciones-crear.page.html',
   styleUrls: ['./situaciones-crear.page.scss'],
   standalone: true,
-  imports: [IonBackButton, IonButtons, IonTextarea, IonInput, IonButton, IonItem, IonProgressBar, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, ReactiveFormsModule]
+  imports: [IonBackButton, IonButtons, IonTextarea, IonInput, IonButton, IonItem, IonProgressBar, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, ReactiveFormsModule, HttpClientModule]
 })
 export class SituacionesCrearPage implements OnInit, AfterViewInit {
   public situacionForm!: FormGroup;
@@ -20,7 +21,7 @@ export class SituacionesCrearPage implements OnInit, AfterViewInit {
   public imagen: string | undefined;
   loading?: boolean;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private http: HttpClient) { }
 
   ngOnInit() {
     this.situacionForm = this.fb.group({
@@ -46,9 +47,49 @@ export class SituacionesCrearPage implements OnInit, AfterViewInit {
     }, 300); 
   }
   async registrarSituacion() {
-    throw new Error('Method not implemented.');
-  }
+    if (this.situacionForm.invalid) {
+      console.log('Formulario inválido');
+      return;
+    }
+  
+    this.loading = true;
+  
+    const formValues = this.situacionForm.value;
+    const token = localStorage.getItem('token');
+    if (!token) {
+      alert('No se pudo obtener el token. Inicia sesión nuevamente.');
+      this.loading = false;
+      return;
+    }
 
+    const formData = new FormData();
+    formData.append('token', token);
+    formData.append('titulo', formValues.titulo);
+    formData.append('descripcion', formValues.descripcion);
+    formData.append('foto', formValues.imagen ?? '');
+    formData.append('latitud', formValues.latitud);
+    formData.append('longitud', formValues.longitud);
+  
+    try {
+      const response: any = await this.http.post('https://adamix.net/defensa_civil/def/nueva_situacion.php', formData).toPromise();
+  
+      this.loading = false;
+      
+      alert(response.mensaje);
+
+      if (response.exito) {
+        this.situacionForm.reset();
+        this.marker?.remove();
+      }
+  
+    } catch (error) {
+      this.loading = false;
+      console.error('Error en el envío:', error);
+  
+      alert("Ocurrió un error al intentar registrar la situación.");
+      
+    }  
+  }
 
   loadMap() {
     this.map = L.map('mapSituacionCrear').setView([18.7357, -70.1627], 8);
@@ -89,7 +130,7 @@ export class SituacionesCrearPage implements OnInit, AfterViewInit {
       quality: 90,
       allowEditing: false,
       resultType: CameraResultType.Base64, 
-      source: CameraSource.Camera,
+      source: CameraSource.Prompt,
     });
   
     if (image.base64String) {

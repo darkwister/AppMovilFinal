@@ -6,7 +6,11 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 export const routes: Routes = [
   {
     path: '',
+<<<<<<< HEAD
     redirectTo: 'video-vista',
+=======
+    redirectTo: 'example',
+>>>>>>> dev
     pathMatch: 'full',
   },
   {
@@ -20,6 +24,10 @@ export const routes: Routes = [
   {
     path: 'login',
     loadComponent: () => import('./pages/login/login.page').then(m => m.LoginPage)
+  },
+  {
+    path: 'registro',
+    loadComponent: () => import('./pages/registro/registro.page').then(m => m.RegistroPage)
   },
   {
     path: 'noticia-detalle',
@@ -50,8 +58,21 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/miembros/miembros.page').then(m => m.MiembrosPage)
   },
   {
+<<<<<<< HEAD
     path: 'video-vista',
     loadChildren: () => import('./pages/video-vista/video-vista.page').then(m => m.VideoVistaPage)
+=======
+    path: 'albergue-detalle',
+    loadComponent: () => import('./pages/albergue-detalle/albergue-detalle.page').then(m => m.AlbergueDetallePage)
+  },
+  {
+    path: 'situaciones-vista',
+    loadComponent: () => import('./pages/situaciones-vista/situaciones-vista.page').then(m => m.SituacionesVistaPage)
+  },
+  {
+    path: 'video-vista',
+    loadComponent: () => import('./pages/video-vista/video-vista.page').then(m => m.VideoVistaPage)
+>>>>>>> dev
   }
 ];
 

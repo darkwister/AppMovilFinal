@@ -9,7 +9,7 @@
       <ion-item lines="none" class="ion-item">
         <fieldset class="input-item">
           <legend>Nombre</legend>
-          <ion-input type="text" placeholder="Ingrese su nombre"></ion-input>
+          <ion-input type="text" placeholder="Ingrese su nombre" [(ngModel)]="nombre"></ion-input>
         </fieldset>
       </ion-item>
 
@@ -17,7 +17,7 @@
       <ion-item lines="none" class="ion-item">
         <fieldset class="input-item">
           <legend>Apellido</legend>
-          <ion-input type="text" placeholder="Ingrese su apellido"></ion-input>
+          <ion-input type="text" placeholder="Ingrese su apellido" [(ngModel)]="apellido"></ion-input>
         </fieldset>
       </ion-item>
 
@@ -25,7 +25,7 @@
       <ion-item lines="none" class="ion-item">
         <fieldset class="input-item">
           <legend>Correo</legend>
-          <ion-input type="email" placeholder="Ingrese su correo"></ion-input>
+          <ion-input type="email" placeholder="Ingrese su correo" [(ngModel)]="correo"></ion-input>
         </fieldset>
       </ion-item>
 
@@ -33,7 +33,7 @@
       <ion-item lines="none" class="ion-item">
         <fieldset class="input-item">
           <legend>Cedula de identidad</legend> 
-          <ion-input type="text" placeholder="Ingrese su cedula"></ion-input>
+          <ion-input type="number" placeholder="Ingrese su cedula" [(ngModel)]="cedula"></ion-input>
         </fieldset>
       </ion-item>
 
@@ -41,7 +41,7 @@
       <ion-item lines="none" class="ion-item">
         <fieldset class="input-item">
           <legend>Contraseña</legend> 
-          <ion-input type="password" placeholder="*******"></ion-input>
+          <ion-input type="password" placeholder="*******" [(ngModel)]="clave"></ion-input>
         </fieldset>
       </ion-item>
 
@@ -49,12 +49,12 @@
       <ion-item lines="none" class="ion-item">
         <fieldset class="input-item">
           <legend>Telefono</legend>
-          <ion-input type="text" placeholder="Ingrese su telefono"></ion-input>
+          <ion-input type="text" placeholder="Ingrese su telefono" [(ngModel)]="telefono"></ion-input>
         </fieldset>
       </ion-item>
 
 
-      <ion-button class="login-button" expand="block">Registrarse</ion-button>
+      <ion-button (click)="registrarse()" class="login-button" expand="block">Registrarse</ion-button>
     </div>
   </div>
   

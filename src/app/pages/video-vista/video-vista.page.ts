@@ -13,6 +13,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './video-vista.page.html',
   styleUrls: ['./video-vista.page.scss'],
   standalone: true,
+<<<<<<< HEAD
   imports: [
     CommonModule,
     IonHeader, 
@@ -21,6 +22,9 @@ import { CommonModule } from '@angular/common';
     IonContent,
     IonButton
   ]
+=======
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonProgressBar, IonItem, IonLabel, IonList, IonItemOption, IonItemOptions, IonItemSliding, IonCard]
+>>>>>>> dev
 })
 export class VideoVistaPage {
   videos = [

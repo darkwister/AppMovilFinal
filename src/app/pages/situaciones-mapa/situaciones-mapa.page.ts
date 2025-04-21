@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonButtons, IonBackButton } from '@ionic/angular/standalone';
 import * as L from 'leaflet';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 interface Situacion {
   id: string;
   titulo: string;
@@ -18,14 +19,14 @@ interface Situacion {
   templateUrl: './situaciones-mapa.page.html',
   styleUrls: ['./situaciones-mapa.page.scss'],
   standalone: true,
-  imports: [IonBackButton, IonButtons, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  imports: [IonBackButton, IonButtons, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, HttpClientModule]
 })
 export class SituacionesMapaPage implements OnInit, AfterViewInit {
-  @Input() situaciones: Situacion[] = []; 
+  situaciones: Situacion[] = []; 
 
   map!: L.Map;
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {}
   ngAfterViewInit(): void {
@@ -36,7 +37,16 @@ export class SituacionesMapaPage implements OnInit, AfterViewInit {
       }
     }, 300);
   }
-
+  fetchSituaciones() {
+    this.http.get<any>('https://adamix.net/defensa_civil/def/situaciones.php').subscribe(response => {
+      if (response.exito) {
+        this.situaciones = response.datos;
+        this.addMarkers(); 
+      }
+    }, error => {
+      console.error('Error al obtener situaciones:', error);
+    });
+  }
   loadMap() {
     this.map = L.map('mapSituacionMapa').setView([18.7357, -70.1627], 8);
 
