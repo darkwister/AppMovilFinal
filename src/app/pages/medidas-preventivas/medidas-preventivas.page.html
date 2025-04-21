@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title style="text-align: center; margin-top: 20xp;"> Medidas Preventivas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-refresher slot="fixed" (ionRefresh)="refrescar($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-spinner *ngIf="cargando" name="crescent"></ion-spinner>
+  <ion-text color="danger" *ngIf="error">{{ error }}</ion-text>
+
+  <ion-list *ngIf="!cargando && medidas.length" lines="none">
+    <ion-item *ngFor="let medida of medidas" (click)="verDetalle(medida)" detail>
+      <ion-avatar slot="start">
+        <ion-icon name="shield-checkmark-outline" size="large" color="primary"></ion-icon>
+      </ion-avatar>
+      <ion-label>
+        <h2 class="medida-title">{{ medida.titulo }}</h2>
+        <p class="medida-description">{{ medida.descripcion | slice:0:60 }}...</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

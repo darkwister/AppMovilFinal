@@ -6,7 +6,7 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'video-vista',
+    redirectTo: 'inicio-nonuser',
     pathMatch: 'full',
   },
   {
@@ -64,6 +64,14 @@ export const routes: Routes = [
   {
     path: 'video-vista',
     loadComponent: () => import('./pages/video-vista/video-vista.page').then(m => m.VideoVistaPage)
+  },
+  {
+    path: 'medidas-preventivas',
+    loadComponent: () => import('./pages/medidas-preventivas/medidas-preventivas.page').then(m => m.MedidaPreventivaPage)
+  },
+  {
+    path: 'medida-detalle',
+    loadComponent: () => import('./pages/medida-detalle/medida-detalle.page').then(m => m.MedidaDetallePage)
   }
 ];
 

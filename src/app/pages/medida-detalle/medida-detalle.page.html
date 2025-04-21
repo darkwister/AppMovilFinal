@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/medida-preventiva"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalle</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ng-container *ngIf="medida; else sinData">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>
+          <ion-icon name="alert-circle-outline" slot="start" color="warning" size="large"></ion-icon>
+          {{ medida.titulo }}
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p class="medida-descripcion">
+          {{ medida.descripcion }}
+        </p>
+      </ion-card-content>
+    </ion-card>
+  </ng-container>
+
+  <ng-template #sinData>
+    <ion-card color="danger">
+      <ion-card-content>
+        <ion-text color="light">
+          <p>No se encontró información para mostrar.</p>
+        </ion-text>
+      </ion-card-content>
+    </ion-card>
+  </ng-template>
+</ion-content>
