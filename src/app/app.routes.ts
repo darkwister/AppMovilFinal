@@ -6,7 +6,7 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'example',
+    redirectTo: 'inicio-nonuser',
     pathMatch: 'full',
   },
   {
@@ -85,9 +85,6 @@ export const routes: Routes = [
     path: 'recuperar-con',
     loadComponent: () => import('./pages/recuperar-con/recuperar-con.page').then( m => m.RecuperarConPage)
   }
-
-
-
 ];
 
 export const appConfig = {
