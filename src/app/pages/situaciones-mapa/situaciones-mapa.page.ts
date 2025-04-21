@@ -80,7 +80,7 @@ export class SituacionesMapaPage implements OnInit, AfterViewInit {
 
         const popupHtml = `
           <strong>${situacion.titulo}</strong><br>
-          <img src="data:image/jpeg;base64,${situacion.foto}" alt="foto" width="150" style="border-radius: 8px; margin-top: 5px;">
+          <img src="${situacion.foto}" alt="foto" width="150" style="border-radius: 8px; margin-top: 5px;">
         `;
 
         marker.bindPopup(popupHtml);
