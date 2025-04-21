@@ -1,7 +1,7 @@
 # Proyecto final de apps moviles
 Aplicacion de la Defensa Civil
 
-Integrandetes
+Integrantes
 - Ashanty Almaly Vasquez Vasquez
 - Abel Junior Restituyo Figuereo
 - Job Jefferson Perez Cabrera
