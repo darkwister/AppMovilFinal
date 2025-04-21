@@ -84,20 +84,21 @@ export const routes: Routes = [
   {
     path: 'recuperar-con',
     loadComponent: () => import('./pages/recuperar-con/recuperar-con.page').then( m => m.RecuperarConPage)
+  },
+  {
+    path: 'cambiar-con',
+    loadComponent: () => import('./pages/cambiar-con/cambiar-con.page').then( m => m.CambiarConPage)
   }
 ];
 
 export const appConfig = {
   providers: [
     provideHttpClient(
-      withInterceptors([]) // Puedes agregar interceptores aquí si los necesitas
+      withInterceptors([])
     ),
     provideIonicAngular({
       mode: 'md',
       platform: {
-        /** The default `desktop` function returns false for devices with a touchscreen.
-        * This is not always wanted, so this function tests the User Agent instead.
-        **/
         desktop: (win) => {
           const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(win.navigator.userAgent);
           return !isMobile;
@@ -105,6 +106,5 @@ export const appConfig = {
       }
     }),
     provideAnimations(),
-    // Otros providers globales que necesites
   ]
 };

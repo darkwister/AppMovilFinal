@@ -1,0 +1,46 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Cambiar Contraseña</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="FormCambiar" (ngSubmit)="onSubmit()">
+
+    <ion-item>
+      <ion-label position="floating">Contraseña Actual</ion-label>
+      <ion-input
+        formControlName="contra_actual"
+        type="password"
+        (blur)="FormCambiar.get('contra_actual')?.markAsTouched()">
+      </ion-input>
+    </ion-item>
+    <ion-text color="danger" *ngIf="FormCambiar.get('contra_actual')?.touched">
+      <p *ngIf="FormCambiar.get('contra_actual')?.errors?.['required']">Debe ingresar la contraseña actual.</p>
+      <p *ngIf="FormCambiar.get('contra_actual')?.errors?.['incorrecta']">La contraseña actual es incorrecta.</p>
+    </ion-text>
+
+    <ion-item>
+      <ion-label position="floating">Nueva Contraseña</ion-label>
+      <ion-input
+        formControlName="contra_nueva"
+        type="password"
+        (blur)="FormCambiar.get('contra_nueva')?.markAsTouched()">
+      </ion-input>
+    </ion-item>
+    <ion-text color="danger" *ngIf="FormCambiar.get('contra_nueva')?.touched">
+      <p *ngIf="FormCambiar.get('contra_nueva')?.errors?.['required']">Debe ingresar una nueva contraseña.</p>
+      <p *ngIf="FormCambiar.get('contra_nueva')?.errors?.['minlength']">La contraseña debe tener al menos 6 caracteres.</p>
+    </ion-text>
+
+    <ion-button expand="full" type="submit" class="ion-margin-top">Enviar</ion-button>
+  </form>
+
+  <ion-card *ngIf="message" color="light">
+    <ion-card-content>
+      <ion-text color="primary">
+        <p class="ion-text-center">{{ message }}</p>
+      </ion-text>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
