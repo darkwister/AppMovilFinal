@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Recuperar Contraseña</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="FormRecuperar" (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-label position="floating">Cédula</ion-label>
+      <ion-input
+        formControlName="cedula"
+        type="text"
+        (blur)="FormRecuperar.get('cedula')?.markAsTouched()">
+      </ion-input>
+    </ion-item>
+    <ion-text color="danger" *ngIf="FormRecuperar.get('cedula')?.invalid && FormRecuperar.get('cedula')?.touched">
+      <p>Cédula es requerida.</p>
+    </ion-text>
+
+    <ion-item>
+      <ion-label position="floating">Correo</ion-label>
+      <ion-input
+        formControlName="correo"
+        type="email"
+        (blur)="FormRecuperar.get('correo')?.markAsTouched()">
+      </ion-input>
+    </ion-item>
+    <ion-text color="danger" *ngIf="FormRecuperar.get('correo')?.invalid && FormRecuperar.get('correo')?.touched">
+      <p>Correo inválido o requerido.</p>
+    </ion-text>
+
+    <ion-button expand="full" type="submit" class="ion-margin-top">Enviar</ion-button>
+  </form>
+
+<ion-card *ngIf="message" color="light">
+  <ion-card-content>
+    <ion-text color="primary">
+      <p>{{ message }}</p>
+    </ion-text>
+  </ion-card-content>
+</ion-card>
+</ion-content>

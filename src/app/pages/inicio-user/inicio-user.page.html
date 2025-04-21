@@ -19,21 +19,17 @@
         </ion-label>
       </ion-col>
       <ion-col size="6" class="ion-text-right">
-        //TODO: Agregar la ruta del cambio de contrasena (Crea un metodo adrian)
         <ion-nav-link routerDirection="back" component="nav-profile">
-          <a href="nav-profile">
+          <a (click)="changePasswordNavigate()">
             <ion-label>Cambiar contraseña</ion-label>      
           </a>
       </ion-nav-link>
       </ion-col>
-      <ion-col size="6">
-        <ion-button (click)="logOut()" expand="block" fill="clear" shape="round">
-          Cerrar Sesión
-        </ion-button>
-      </ion-col>
     </ion-row>
   </ion-grid>
-  
+  <ion-button (click)="logOut()" expand="block" fill="clear" shape="round">
+    Cerrar Sesión
+  </ion-button>
 
   <ion-button (click)="noticiaNavigate()" expand="block">
     <ion-icon slot="start" name="add"></ion-icon>

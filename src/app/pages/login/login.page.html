@@ -1,9 +1,4 @@
 <ion-content [fullscreen]="true">
-<ion-toolbar>
-  <ion-buttons slot="start">
-    <ion-back-button></ion-back-button>
-  </ion-buttons>
-</ion-toolbar>
 <div class="auth-container">
   <div class="container">
     <h1 class="heading">👋 Bienvenido<br><br></h1>
@@ -20,7 +15,7 @@
         <ion-input type="password" placeholder="*******" [(ngModel)]="password"></ion-input>
       </fieldset>
     </ion-item>
-    <p class="forget-text"><a>¿Olvidaste tu contraseña?</a></p>
+    <p class="forget-text"><a (click)="forgotPassword()">¿Olvidaste tu contraseña?</a></p>
     <ion-button (click)="loginApi()" class="login-button" expand="block">Iniciar Sesión</ion-button>
   </div>
 </div>
