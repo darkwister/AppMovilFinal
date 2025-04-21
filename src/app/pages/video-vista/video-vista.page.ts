@@ -41,14 +41,14 @@ export class VideoVistaPage implements OnInit {
 
   Videos = [
     {
-      titulo: 'Video 1',
-      descripcion: 'Introducción a Ionic',
+      titulo: 'Informate',
+      descripcion: 'Informate de Nosotros',
       fecha: new Date(),
       url: 'https://www.youtube.com/watch?v=WeEV2Ay0x_Q'
     },
     {
-      titulo: 'Video 2',
-      descripcion: 'Avanzado en Angular',
+      titulo: 'Informate',
+      descripcion: 'Vamos tu puedes',
       fecha: new Date(),
       url: 'https://www.youtube.com/watch?v=RZJSekdGaM0'
     }
