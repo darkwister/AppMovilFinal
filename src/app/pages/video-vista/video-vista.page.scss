@@ -1,18 +1,24 @@
-/*.rcontainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+.video-container {
+  margin-bottom: 2rem;
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    background: transparent;
+    height: 100%;
+    border: none;
   }
   
-  .container {
-    width: 100%;
-    max-width: 400px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  ion-button {
+    margin-top: 0.5rem;
+    --padding-start: 0;
+    --padding-end: 0;
   }
-  eto e por si quiero centrar la vaina pero
-   lo voy a dejar asi por ahora
-  */
+}

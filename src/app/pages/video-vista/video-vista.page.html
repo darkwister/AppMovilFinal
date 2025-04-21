@@ -1,33 +1,19 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-title>Videos</ion-title>
-    <ion-progress-bar type="indeterminate" *ngIf="isLoading"></ion-progress-bar>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Videos</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <ion-card class="rcontainer">
-    <ion-card class="container">
-  <ion-list>
-    <ion-item-sliding *ngFor="let video of Videos">
-      <ion-item>
-        <ion-label>
-          <h3>{{ video.titulo }}</h3> 
-          <h5>{{ video.descripcion }}</h5>
-          <p>{{ video.fecha | date:'short' }}</p> 
-        </ion-label>
-      </ion-item>
-      <ion-item-options side="end">
-        <ion-item-option (click)="verVideo()">Ver Video en Youtube</ion-item-option>
-      </ion-item-options>
-    </ion-item-sliding>
-  </ion-list>
-</ion-card>
-</ion-card>
+<ion-content class="ion-padding">
+  <div class="video-container" *ngFor="let video of videos">
+    <iframe 
+      width="100%" 
+      height="315" 
+      [src]="'https://www.youtube.com/embed/' + video.id" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen>
+    </iframe>
+    <ion-button expand="block" fill="clear">{{video.title}}</ion-button>
+  </div>
 </ion-content>
