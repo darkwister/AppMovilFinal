@@ -43,11 +43,6 @@ export class SituacionesCrearPage implements OnInit, AfterViewInit {
     }
   }
 
-  ionViewDidEnter() {
-    setTimeout(() => {
-      this.loadMap();
-    }, 300); 
-  }
   async registrarSituacion() {
     if (this.situacionForm.invalid) {
       console.log('Formulario inválido');
@@ -68,7 +63,7 @@ export class SituacionesCrearPage implements OnInit, AfterViewInit {
     formData.append('token', token);
     formData.append('titulo', formValues.titulo);
     formData.append('descripcion', formValues.descripcion);
-    formData.append('foto', formValues.imagen ?? '');
+    formData.append('foto', this.imagen ?? '');
     formData.append('latitud', formValues.latitud);
     formData.append('longitud', formValues.longitud);
   
@@ -94,6 +89,10 @@ export class SituacionesCrearPage implements OnInit, AfterViewInit {
   }
 
   loadMap() {
+    if (this.map) {
+      this.map.off();
+      this.map.remove();
+    }
     this.map = L.map('mapSituacionCrear').setView([18.7357, -70.1627], 8);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -136,7 +135,10 @@ export class SituacionesCrearPage implements OnInit, AfterViewInit {
     });
   
     if (image.base64String) {
-      this.situacionForm.value.imagen = `data:image/jpeg;base64,${image.base64String}`;
+      this.imagen = `data:image/jpeg;base64,${image.base64String}`;
+      this.situacionForm.patchValue({
+        imagen: `data:image/jpeg;base64,${image.base64String}`
+      });    
     }
   }
 }
